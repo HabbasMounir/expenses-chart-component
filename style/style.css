@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+*{
+    font-family: 'Red Hat Display', sans-serif;
+    margin: 0;
+    -webkit-user-drag: none;
+    user-select: none;
+    /* outline: 4px double rgba(255, 0, 0, 0.651); */
+}
+/* *:hover{
+    outline: 4px double rgba(255, 0, 0, 0.651);
+} */
+a{
+    color:hsl(245, 75%, 52%)
+}
+a:hover{
+    color:hsla(245, 75%, 52%, 0.623);
+    text-decoration: none;
+}
+
+body{
+    background:  url("images/pattern-background-desktop.svg")hsl(225, 100%, 94%) no-repeat;
+    box-sizing: border-box ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+p{
+    color: hsl(224, 23%, 55%);
+    font-size: 18px;
+    
+}
+h1,h3,.payment--cancel:hover{
+    color: hsl(223, 47%, 23%);
+    
+}
+h1{
+    margin: 1.5vW;
+}
+.card{
+    overflow: hidden;
+    border-radius: 20px;
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 15px 15px 50px -10px rgba(0, 0, 0, 0.205) ;
+}
+
+.card__header p{
+    width: 300px;
+
+}
+.card__plan{
+    background: hsl(225, 100%, 98%);
+    border-radius: 15px;
+    display: grid;
+    /* I know it's not the right way but I wanted to give it a try */
+    grid-template-areas: 'plan__icon  plan__content . . . .  . . .  plan__change . ';
+    width: 75%;
+    padding: 20px;
+    margin: 10%;
+    justify-content: space-around;
+}
+
+.plan__icon{
+    grid-area: plan__icon;
+}
+.plan__content{
+    grid-area: plan__content;
+
+}
+.plan__price{
+    font-size: 18px;
+}
+.plan__change{
+    grid-area: plan__change;
+    padding-top: 25%;
+    color: hsl(245, 75%, 52%);
+    font-size: 16px;
+    font-weight: 700;
+}
+.payment{
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.payment--confirm{
+    padding: 3.5%;
+    width: 75%;
+    border-radius: 10px;
+    background-color: hsl(245, 75%, 52%);
+    box-shadow: 0px 15px 30px 0px hsla(245, 75%, 52%, 0.281) ;
+
+    color: #fff;
+    font-weight: 600;
+
+}
+.payment--confirm:hover{
+    background-color: hsla(245, 75%, 52%, 0.623);
+    box-shadow: 0px 15px 15px 0px hsla(245, 75%, 52%, 0.205) ;
+}
+.payment--cancel{
+    font-weight: 600;
+    color: hsl(224, 23%, 55%);
+
+}
+
+
+    @media screen and (max-width: 500px) {
+        .card__hero img{
+            width: 90vw;
+            /* height: 10vw; */
+        }
+
+    }
+
+
+
+.attribution { 
+    font-size: 1.8vh;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 70vw;
+    position: fixed;
+    bottom: -5px;
+    right:  15%;
+    z-index: 9999;
+    color:hsl(223, 47%, 23%);
+    font-weight: 600;
+    }
+    .attribution a {
+        font-size: 2vh;
+        color:hsla(245, 75%, 52%, 0.767);
+        text-decoration: none;
+    }
+    .attribution a:hover{
+        color:hsl(245, 75%, 52%);
+    }

@@ -2,63 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="./style/images/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;700;900&display=swap" rel="stylesheet">
-  <title>Frontend Mentor | Order summary card</title>
-  <link rel='stylesheet' type='text/css' media='screen' href='style/style.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Frontend Mentor | Expenses chart component</title>
+
+
+</head>
 <body>
 <div class="card">
-      <div class="card__hero">
-        <img src="style/images/illustration-hero.svg" alt="illustration-hero">
-      </div>
-      <div class="card__header">
-        <h1> Order Summary</h1>
-        <p>  
-          You can now listen to millions of songs, 
-          audiobooks, and podcasts on any device 
-          anywhere you like!
-        </p>
-      </div>
-      <div class="card__plan">
-        <div class="plan__icon">
-          <img src="style/images/icon-music.svg" alt="">
-        </div>
-        <div class="plan__content">
-          <h3>Annual Plan</h3>  
-          <p class="plan__price">$59.99/year</p>
-        </div>
-        <div class="plan__change">
-          <a href="">Change</a>
-        </div>
-      </div>
-        <div class="payment payment--confirm"> Proceed to Payment</div>
-        <div class="payment payment--cancel">  Cancel Order</div>
-</div>
-<div>
-<div class="attribution">
-    Challenge by 
-    <lord-icon
-        src="https://cdn.lordicon.com/etllbcfy.json"
-        trigger="hover"
-        style="width:4vh;height:4vh"
-        >
+  <div class="card__section section--header">
+    <div class="balance">
+      <p>My balance</p>
+      <h1>$921.48 </h1>
+      
+    </div>
+    <div class="logo">
+      <img src="images/logo.svg" alt="logo" title="">
+    </div>
+  </div>
+  <div class="card__main">
+     <h2 class="chart__title"> Spending - Last 7 days</h2>
+    <div class="chart">
 
-      </lord-icon>
-    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by<script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
-  
-        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
-<lord-icon
-    src="https://cdn.lordicon.com/dklbhvrt.json"
-    trigger="hover"
-    style="width:4vh;height:4vh;">
+
+  </div>    
+    <hr >
+<div class="card__section section--footer">
+      <div class="footer__total">
+      <p>Total this month</p>
+      <h1>$478.33</h1>        
+      </div>
+      <div class="footer__progrees">
+      <h3 class="last_number">+2.4%</h3>
+      <p>from last month</p>        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="attribution">
+  Challenge by 
+  <lord-icon
+      src="https://cdn.lordicon.com/etllbcfy.json"
+      trigger="hover"
+      style="width:4vh;height:4vh"
+      >
 
     </lord-icon>
-    <a href="https://github.com/HabbasMounir">mounir habbas</a>.
+  <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by<script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+
+      <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+<lord-icon
+  src="https://cdn.lordicon.com/dklbhvrt.json"
+  trigger="hover"
+  style="width:4vh;height:4vh;">
+
+  </lord-icon>
+  <a href="https://github.com/HabbasMounir">mounir habbas</a>.
 </div>
+<style>
+.attribution { 
+  font-size: 1.8vh;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  width: 70vw;
+  position: fixed;
+  bottom: 0.5vh;
+  right:  15%;
+  z-index: 9999;
+  color:hsl(25, 47%, 15%);
+  font-weight: 600;
+  }
+  .attribution a {
+      font-size: 2vh;
+      color:hsl(28, 10%, 53%);
+      text-decoration: none;
+  }
+  .attribution a:hover{
+      color:hsl(10, 79%, 65%);
+  }
+</style>
+
+<script>
+let chart=document.querySelector(".chart")
+   let chart__bar=document.createElement("div")
+
+   let json=`[
+    {
+    "day": "mon",
+    "amount": 17.45
+    },
+    {
+    "day": "tue",
+   "amount": 31.07
+    },
+    {
+    "day": "wed",
+    "amount": 52.36
+    },
+    {
+    "day": "thu",
+    "amount": 31.07
+    },
+    {
+    "day": "fri",
+    "amount": 23.39
+    },
+    {
+    "day": "sat",
+    "amount": 43.28
+    },
+    {
+    "day": "sun",
+    "amount": 25.48
+    }
+  ]`
+  let data=JSON.parse(json)
+
+
+  for(i=0;i<data.length;i++){
+    let chart__bar=document.createElement("div")
+        chart__bar.className="chart__bar"
+    let Bar__condition=""
+    let lab =document.body.clientWidth
+    data[i].amount == 0       ?Bar__condition="Bar--incomplete"
+    : data[i].amount >= 50    ?Bar__condition="Bar--unusual"
+                              : Bar__condition="Bar--normal"
+
+    data[i].amount == 0?Bar__height="2" :Bar__height=data[i].amount;
+    data[i].amount ===""?Bar__description="no info":Bar__description=`$${data[i].amount}`;
+    
+  
+      chart__bar.innerHTML=`
+        <p class= "Bar__title">${data[i].day}</p>
+      <div class= "Bar__shape ${Bar__condition}
+                  "style="height: ${`${Bar__height*2.5}px`};">
+      </div>
+      <div class= "Bar__description">
+        <p> ${Bar__description}</p>
+      </div>
+`
+chart.appendChild(chart__bar)
+}
+let Bar__shape= document.querySelectorAll(".Bar__shape");
+    Bar__shape.forEach(e => {
+        e.addEventListener("mouseover",function (){ 
+          e.nextElementSibling.style.animation= "Descriptoin  0.25s  "
+          setTimeout( ()=>e.nextElementSibling.style.opacity="1" ,250)
+            
+        })
+        e.addEventListener("mouseout",function (){
+            setTimeout( ()=>e.nextElementSibling.style.opacity="0" ,500)
+            e.nextElementSibling.style.animation= "Descriptoi  0.5s linear  "
+         
+          })
+    });
+
+
+
+
+
+
+</script>
 </body>
 </html>

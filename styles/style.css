@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+    user-select: none;
+    -webkit-user-drag: none;
+    /* outline: 4px double rgba(255, 0, 0, 0.377); */
+
+}
+
+
+/* *:hover{
+    outline: 4px double red;
+} */
+body{
+    background: hsl(27, 66%, 92%);
+    box-sizing: border-box ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+        height: 100vh;
+}
+.card{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.card__section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+} 
+.section--header{
+    border-radius: 20px;
+    background-color:hsl(10, 79%, 65%);
+    color: hsl(33, 100%, 98%);
+}
+.section--header .logo{
+    margin: 20px;
+}
+
+.section--header .balance{
+    margin: 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.balance h1{
+    font-weight: 500;
+}
+.section--footer{
+    padding: 25px; 
+}
+
+h2,.section--footer h1,.last_number{
+    color:hsl(25, 47%, 15%);
+}
+.last_number{
+    text-align: end;
+}
+.section--footer ,.Bar__title {
+    color: hsl(28, 10%, 53%);
+}
+
+hr{
+    margin: 20px 30px 0px 30px;
+    opacity: 0.5;
+    border-bottom: hsl(33, 100%, 98%) 1px solid;
+}
+.card__main{
+    margin-top: 2rem;
+    background: hsl(33, 100%, 98%);
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.chart{
+    display: flex;
+    height: 225px;
+    gap: 3px;
+    padding: 5px;
+}
+
+.chart__title{
+padding: 10px;
+}
+
+.chart__bar{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: end; 
+}
+.Bar__shape{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px ;
+    margin: 5px 2.5px 5px 2.5px;
+    cursor: none;
+}
+.Bar--normal{
+    background-color: hsl(10, 79%, 65%);
+}
+.Bar--unusual {
+    background-color: hsl(186, 34%, 60%);
+}
+.Bar--incomplete{
+    background-color: hsl(10, 79%, 65%);
+    opacity: 0.7;
+    /* background-color:  hsl(25, 47%, 15%); */
+    border-radius: 5px 5px 0px 0px ;
+}
+.Bar__shape:hover{
+    animation: Barhover 2s linear , Deshover 0.5s ease-in-out ;
+    cursor: none;
+
+}
+
+.Bar__description{
+    opacity: 0;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    background-color: hsl(25, 47%, 15%);
+    color: hsl(27, 66%, 92%);
+    border-radius: 5px;
+    height: 25px;
+    width: 55px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+
+
+@media screen and (max-width: 550px) {
+    .section--header .balance{
+        margin: 20px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .balance h1{
+        font-weight: 5000;
+    }
+    .section--footer{
+        padding: 20px; 
+    }
+    .card__main{
+        border-radius: 15px;
+    }
+    
+    .chart{
+        display: flex;
+        height: 200px;
+        gap: 2.5px;
+        padding: 5px;
+    }
+    
+    .chart__title{
+    padding: 10px;
+    font-size: 22px;
+    }
+    .Bar__shape{
+        width: 45px;
+    }
+    .Bar__description{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        height: 20px;
+        width: 50px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+}
+@keyframes Barhover{
+    0%{
+        filter: brightness(105%);
+        opacity: 0.6;
+    }
+
+    100%{
+        filter: brightness(120%);
+    }
+
+}
+@keyframes Deshover{
+    0%{
+        margin: 2px 2.5px 5px 2.5px;
+    }
+
+    50%{
+        margin: 8px 2.5px 5px 2.5px;
+        
+    }
+    75%{
+        margin: 4px 2.5px 5px 2.5px;;
+    }
+
+    90%{
+        margin: 6px 2.5px 5px 2.5px;
+    }
+}
+
+@keyframes Descriptoin{
+    100%{
+        opacity:1;
+    }
+    50%{
+        opacity:0.5;
+    }
+    0%{
+        opacity:0;
+    }
+}
+@keyframes Descriptoi{
+    0%{
+        opacity:1;
+    }
+    50%{
+        opacity:0.5;
+    }
+    100%{
+        opacity:0;
+    }
+}
